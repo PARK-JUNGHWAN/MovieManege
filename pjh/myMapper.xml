@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="loginmapper">
+	
+	<select id="selectReserveInfo" resultType="javagers.pjh.ReserveInfo">
+		select * from RESERVE_INFO
+	
+	</select>
+	
+	<select id="selectScreenInfo" resultType="javagers.pjh.ScreenInfo">
+		select * from SCREEN_INFO
+	</select>
+	
+	<select id="selectMovieInfo" resultType="javagers.pjh.MovieInfo">
+		select * from MOVIE_INFO
+	</select>
+	
+	<insert id="insertReserveInfo" parameterType="javagers.pjh.ReserveInfo">
+		insert into RESERVE_INFO values(#{reserve_date},#{reserve_rnum},
+		#{reserve_num},#{reserve_title},#{reserve_screen},#{reserve_round},
+		#{reserve_people},#{reserve_price},	
+		#{reserve_seat},#{reserve_mnum},#{reserve_time},#{reserve_id})
+	</insert>
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
