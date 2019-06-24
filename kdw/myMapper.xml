@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="loginmapper">
+
+	<insert id="insertCustomer" parameterType="javagers.kdw.Customer_info" >
+		insert into customer_info values(#{customer_name},#{customer_id},
+			#{customer_pwd},#{customer_birth},#{customer_addr},#{customer_gen},#{customer_num}
+			,#{customer_pnt})
+	</insert>
+	
+	
+	
+	<update id="updateCustomerInfo" parameterType="javagers.kdw.Customer_info">
+		update customer_info set customer_name=#{customer_name}, customer_id=#{customer_id},
+			customer_pwd=#{customer_pwd}, customer_birth=#{customer_birth} 
+			, customer_addr=#{customer_addr}, customer_gen=#{customer_gen}
+			, customer_num=#{customer_num}
+		where customer_id = #{customer_id}
+	</update>
+
+	<select id="selectAllCustomerInfo" 
+		resultType="javagers.kdw.Customer_info">
+		select * from customer_info 
+	</select>
+	
+	<select id="selectCustomerInfo" parameterType="String"
+		resultType="javagers.kdw.Customer_info">
+		select * from customer_info where customer_id = #{customer_id}
+	</select>
+	
+
+<select id = "selectidCustomer" parameterType = "String"
+	resultType = "javagers.kdw.Customer_info">
+		select * from customer_info where customer_id = #{customer_id}
+	
+	</select>
+	
+	<select id= "selectnameCustomer" parameterType = "String"
+	resultType = "javagers.kdw.Customer_info">
+		select * from customer_info where customer_name = #{customer_name}
+	
+	
+	</select>
+	
+	<select id= "selectbirthCustomer" parameterType = "String"
+	resultType = "javagers.kdw.Customer_info">
+		select * from customer_info where customer_birth = #{customer_birth}
+	
+	
+	</select>
+	
+	<select id= "selectnumCustomer" parameterType = "String"
+	resultType = "javagers.kdw.Customer_info">
+		select * from customer_info where customer_num = #{customer_num}
+	
+	
+	</select>
+	
+	<select id= "selectnameCustomerInfo" parameterType = "String"
+	resultType = "javagers.kdw.Customer_info">
+		select * from customer_info where customer_name = #{customer_name}
+	
+	
+	</select>
+	
+	<delete id="deleteCustomerId" parameterType="String">						<!-- 삭제 -->
+		delete from customer_info where customer_id = #{customer_id}
+	</delete>
+	
+	
+	
+	
+
+</mapper>
+
+
+
+
+
+
+
+

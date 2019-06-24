@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="loginmapper">
+	<insert id="insertMovie" parameterType="javagers.kjs.Movie_Info">
+		insert into movie_info values(
+		#{movie_num},#{movie_name},#{movie_genre},#{movie_age},
+		#{movie_screen},#{movie_price},#{movie_image},
+		#{movie_infos},#{movie_director},#{movie_actor})
+	</insert>
+	<select id="selectMovie" parameterType="String"
+		resultType="javagers.kjs.Movie_Info">
+		select * from movie_info where movie_name=#{movie_name}
+	</select>
+	
+	<select id="selectAllMovieNameInfo" 
+		resultType="javagers.kjs.Screen_Info">
+		select distinct screen_mname from screen_info
+	</select>
+	
+	<update id="updateMovie" parameterType="javagers.kjs.Movie_Info">
+		update movie_info set movie_num = #{movie_num},
+		movie_genre = #{movie_genre}, movie_age = #{movie_age},
+		movie_screen = #{movie_screen}, movie_price = #{movie_price},
+		movie_image = #{movie_image}, movie_infos = #{movie_infos},
+		movie_director = #{movie_director}, movie_actor = #{movie_actor}
+		where movie_name = #{movie_name}
+	</update>
+		
+	<select id="selectAllScreenInfo" 
+		resultType="javagers.kjs.Screen_Info">
+		select * from screen_info
+	</select>
+	<select id="selectAllMovieInfo" 
+		resultType="javagers.kjs.Movie_Info">
+		select * from movie_info
+	</select>
+		<select id="AllMovieNameInfo" 
+		resultType="javagers.kjs.Movie_Info">
+		select movie_name from movie_info
+	</select>
+	
+	
+	<delete id="deleteMovie" parameterType="String">
+		delete from movie_info where movie_name=#{movie_name}
+	</delete>
+	
+	
+	<update id="updateCustomerInfo" parameterType="javagers.kjs.Customer_info">
+		update customer_info set customer_name=#{customer_name}, customer_id=#{customer_id},
+			customer_pwd=#{customer_pwd}, customer_birth=#{customer_birth} 
+			, customer_addr=#{customer_addr}, customer_gen=#{customer_gen}
+			, customer_num=#{customer_num}
+		where customer_id = #{customer_id}
+	</update>
+	
+	<select id="selectCustomerInfo" parameterType="String"
+		resultType="javagers.kjs.Customer_info">
+		select * from customer_info where customer_id = #{customer_id}
+	</select>
+	
+	<select id="selectAllCustomerInfo" 
+		resultType="javagers.kjs.Customer_info">
+		select * from customer_info 
+	</select>
+	
+	<select id = "selectidCustomer" parameterType = "String"
+	resultType = "javagers.kjs.Customer_info">
+		select * from customer_info where customer_id = #{customer_id}
+	
+	</select>
+	<select id= "selectnameCustomer" parameterType = "String"
+	resultType = "javagers.kjs.Customer_info">
+		select * from customer_info where customer_name = #{customer_name}
+	</select>
+	
+	<select id= "selectnumCustomer" parameterType = "String"
+	resultType = "javagers.kjs.Customer_info">
+		select * from customer_info where customer_num = #{customer_num}
+	
+	
+	</select>
+	<delete id="deleteCustomerId" parameterType="String">						<!-- 삭제 -->
+		delete from customer_info where customer_id = #{customer_id}
+	</delete>
+	
+	
+	
+	
+	
+
+	<insert id="insertTime" parameterType="javagers.kjs.Screen_Info">
+		insert into screen_info values(
+		#{screen_screen},#{screen_round},#{screen_begin},#{screen_end},#{screen_mname}
+		)
+	</insert>
+	<select id="selectTime" parameterType="String"
+		resultType="javagers.kjs.Screen_Info">
+		select * from screen_info where screen_mname=#{screen_mname}
+		
+	</select>
+</mapper>
